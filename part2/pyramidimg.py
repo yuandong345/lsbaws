@@ -12,6 +12,6 @@ def test_page(request):
 
 
 config = Configurator()
-config.add_route('png', '/png19.png')
+config.add_route('png', '/webp.png')
 config.add_view(test_page, route_name='png')
 app = config.make_wsgi_app()
