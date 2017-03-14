@@ -109,20 +109,20 @@ class WSGIServer(object):
             response = 'HTTP/1.1 {status}\r\n'.format(status=status)
             for header in response_headers:
                 response += '{0}: {1}\r\n'.format(*header)
-            response += '\r\n'
-            for data in result:
-                response += data
-            # Print formatted response data a la 'curl -v'
             print(''.join(
                 '> {line}\n'.format(line=line)
                 for line in response.splitlines()
             ))
+            response += '\r\n'
+            for data in result:
+                response += data
+            # Print formatted response data a la 'curl -v'
             self.client_connection.sendall(response)
         finally:
             self.client_connection.close()
 
 
-SERVER_ADDRESS = (HOST, PORT) = '', 8888
+SERVER_ADDRESS = (HOST, PORT) = '', 18888
 
 
 def make_server(server_address, application):
